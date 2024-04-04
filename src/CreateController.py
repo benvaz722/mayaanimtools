@@ -1,4 +1,12 @@
 #alt+shift+m = send code to maya
 import maya.cmds as mc
 
-print("hello")
+from PySide2.QtWidgets import QWidget
+
+class CreateControllerWidget(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Create IKFK Limb")
+
+controllerWidget = CreateControllerWidget()
+controllerWidget.show()
