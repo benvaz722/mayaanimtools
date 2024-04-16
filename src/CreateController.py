@@ -138,7 +138,7 @@ class CreateLimbController(): #a class that is going to be called upon to create
         SetChannelHidden(ikfkBlendCtrl, 'v')
 
         ikfkBlendAttr = "ikfkblend"
-        mc.addAttr(ikfkBlendCtrl, ln=ikfkBlendAttr, k= True)#k=keyable
+        mc.addAttr(ikfkBlendCtrl, ln=ikfkBlendAttr, k= True, min = 0, max = 1)#k=keyable
         mc.connectAttr(ikfkBlendCtrl + "." + ikfkBlendAttr, ikHandleName + ".ikBlend")#list two dots connceting
         
         reverseNode = "reverse_" + self.root + "_ikfkBlend"
@@ -154,8 +154,6 @@ class CreateLimbController(): #a class that is going to be called upon to create
         mc.connectAttr(ikfkBlendCtrl + "." + ikfkBlendAttr, ikEndCtrlGrp + ".v")
 
         mc.group(ikfkBlendCtrlGrp, ikEndCtrlGrp, ikMidCtrlGrp, RootCtrlGrp, n = RootCtrlGrp + "_limb")
-
-        
 
 class CreateControllerWidget(QWidget): #incharge of talking to the real code
     def __init__(self): # initulize the class 
